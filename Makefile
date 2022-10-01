@@ -9,6 +9,10 @@ BIN=$(BINDIR)/main
 
 all: $(BIN)
 
+release: CCFLAGS=-Wall -O3 -DNDEBUG
+release: clean
+release: $(BIN)
+
 $(BIN): $(OBJS)
 	$(CC) $(CCFLAGS) $(OBJS) -o $@
 
